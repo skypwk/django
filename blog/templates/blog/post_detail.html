@@ -12,6 +12,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'blog/bootstrap/css/styles.css' %}" rel="stylesheet" />
         <link href="{% static 'blog/bootstrap4/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+        <script src="https://kit.fontawesome.com/a3fbf73123.js" crossorigin="anonymous"></script>
 
     </head>
     <body>
@@ -58,6 +59,21 @@
                         <!-- Post content-->
                         <section class="mb-5">
                             <p>{{ post.content }}</p>
+                            {% if post.file_upload %}
+                                <a href="{{ post.file_upload.url }}" class="btn btn-outline-dark" role="button" >
+                                    Download :
+
+                                    {% if post.get_file_ext == 'csv' %}
+                                        <i class="fas fa-file-csv"></i>
+                                    {% elif post.get_file_ext == 'xlsx' or post.get_file_ext == 'xls' %}
+                                        <i class="fas fa-file-excel"></i>
+                                    {% elif post.get_file_ext == 'docx' or post.get_file_ext == 'doc' %}
+                                        <i class="fas fa-file-word"></i>
+                                    {% else %}
+                                        <i class="fas fa-file"></i>
+                                    {% endif %}
+                                </a>
+                            {% endif %}
                         </section>
                     </article>
 
