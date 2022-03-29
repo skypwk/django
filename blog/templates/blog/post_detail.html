@@ -48,8 +48,13 @@
                             <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
                             <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
                         </header>
-                        <!-- Preview image figure-->
-                        <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
+                        <!-- Preview Image -->
+                        {% if post.head_image %}
+                            <img class="card-img-top" src="{{ post.head_image.url }}" alt="Card image cap">
+                        {% else %}
+                            <img class="card-img-top" src="https://via.placeholder.com/750x300" alt="Card image cap">
+                        {% endif %}
+                        
                         <!-- Post content-->
                         <section class="mb-5">
                             <p>{{ post.content }}</p>
