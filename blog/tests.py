@@ -84,20 +84,8 @@ class TestView(TestCase):
 
 
 
-
-
-
-
-
-
     def test_post_detail(self):
-        # post_001 = Post.objects.create(
-        #     title='첫 번째 포스트입니다.',
-        #     content='Hello World. We are the world',
-        #     author=self.user_trump,
-        # )
 
-        #print(post_001.get_absolute_url())
         self.assertEqual(self.post_001.get_absolute_url(), '/blog/1/')
 
         response = self.client.get(self.post_001.get_absolute_url())
@@ -106,6 +94,7 @@ class TestView(TestCase):
         #print(soup)
 
         self.navbar_test(soup)
+        self.category_card_test(soup)
 
 
         self.assertIn(self.post_001.title, soup.title.text)
@@ -113,6 +102,7 @@ class TestView(TestCase):
         main_area = soup.find('div', id='main-area')
         post_area = main_area.find('div', id='post-area')
         self.assertIn(self.post_001.title, post_area.text)
+        self.assertIn(self.category_programming.name, post_area.text)
 
         self.assertIn(self.user_trump.username.upper(), post_area.text)
 
