@@ -80,7 +80,7 @@ class PostCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
                         tag.save()
                     self.object.tags.add(tag)
 
-                return response
+            return response
         else:
             return redirect('/blog/')
 
