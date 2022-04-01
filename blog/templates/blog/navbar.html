@@ -24,6 +24,18 @@
 
                 <ul class="navbar-nav ml-auto">
                     {% if user.is_authenticated %}
+
+                        {% if user.socialaccount_set.all.0.get_avatar_url %}
+                            <img class="rounded-circle" width="25px" src="{{user.socialaccount_set.all.0.get_avatar_url}}" alt="">
+                        {% else %}
+                            <img class="rounded-circle"  src="https://avatars.dicebear.com/api/adventurer-neutral/lion.svg" width="30px" alt="">
+                        {% endif %}
+                        &nbsp;
+
+                        {{ user.username }}
+
+
+                        &nbsp;&nbsp;&nbsp;
                         <li class="nav-item">
                             <a class="nav-link" href="/accounts/logout/" >Log Out</a>
                         </li>
