@@ -1,18 +1,62 @@
 <!doctype html>
+{% load static %}
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>개발자 달타냥입니다.</title>
+    <title>About 달타냥</title>
+
+    <link href="{% static 'blog/bootstrap4/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'single_pages/css/about_me.css' %}" media="screen">
+    <script src="https://kit.fontawesome.com/a3fbf73123.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    <nav>
-        <a href="/blog/">Blog</a>
-        <a href="/about_me">About me</a>
-    </nav>
 
-    <h1>안녕하세요. 달타냥입니다.</h1>
-    <h2>이력</h2>
-    <h2>Portfolio</h2>
-    <h3>아직 공사중입니다.</h3>
+    {% include 'blog/navbar.html' %}
+
+    <section>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1>안녕하세요. 달타냥입니다.</h1>
+                    <br/>
+                    <p class="lead">
+                        음악과 컴퓨터와 수영을 좋아합니다.<br/>
+                        데이터분석으로 돈을 벌고, 퇴근 후에는 운동을 하거나 책을 쓰면서 지냅니다.
+                    </p>
+                    <ul>
+                        <li>크고 좋은회사 - 빅데이터분석 (2019.10 ~)</li>
+                        <li>모모공공기관 (2016.02 ~ 2019.09)</li>
+                    </ul>
+                    <li>EDUCATION</li>
+                    <ul>
+                        <li>공학박사, 장고공학(Django Engineering), 파이썬 대학교(2010.03~2015.09)</li>
+                        <li>공학박사, 장고공학(Django Engineering), 파이썬 대학교(2010.03~2015.09)</li>
+                        <li>공학박사, 장고공학(Django Engineering), 파이썬 대학교(2010.03~2015.09)</li>
+                    </ul>
+                    <li>PUBLISH</li>
+                    <ul>
+                        <li>DO IT DJANGO, 이지스퍼블리싱(2020)</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <img class="img-fluid" src="{% static 'single_pages/images/Back.jpg' %}" >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light margin-for-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>PORTFOLIO</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="fixed-bottom">
+        {% include 'blog/footer.html' %}
+    </div>
 </body>
 </html>
